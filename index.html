@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="出海攻略 - 专注海外社交媒体运营教程与实操指南。涵盖Twitter、Instagram、Facebook、TikTok、Discord等平台的注册、养号、营销策略。">
+  <meta name="keywords" content="Twitter教程, Instagram运营, Facebook营销, TikTok攻略, Discord建群, 海外社媒">
+  <meta name="author" content="出海攻略">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="出海攻略 - 海外社媒运营教程">
+  <meta property="og:description" content="专注海外社交媒体运营教程与实操指南，助你快速上手Twitter、Instagram、Facebook、TikTok、Discord。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chuhai-tips-blog.vercel.app/">
+  <meta property="og:site_name" content="出海攻略">
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://chuhai-tips-blog.vercel.app/">
+  
+  <title>出海攻略 - 海外社媒运营教程</title>
+  
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- JSON-LD 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "出海攻略",
+    "url": "https://chuhai-tips-blog.vercel.app/",
+    "description": "专注海外社交媒体运营教程与实操指南",
+    "publisher": {
+      "@type": "Organization",
+      "name": "出海攻略"
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- 导航栏 -->
+  <header class="header">
+    <nav class="nav">
+      <a href="index.html" class="logo">🚀 出海攻略</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="菜单">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">首页</a></li>
+        <li><a href="#articles">教程文章</a></li>
+        <li><a href="https://anhao.remecc.com/" target="_blank" rel="noopener">购买账号</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero 区域 -->
+  <section class="hero">
+    <div class="hero-content container">
+      <h1>海外社媒运营实战教程</h1>
+      <p>从零开始，手把手教你掌握 Twitter、Instagram、Facebook、TikTok、Discord 等主流平台的运营技巧</p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number" id="articleCount">5</div>
+          <div class="stat-label">精选教程</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" id="categoryCount">5</div>
+          <div class="stat-label">热门平台</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">免费</div>
+          <div class="stat-label">持续更新</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 主内容区域 -->
+  <main class="container">
+    <div class="main-layout">
+      <!-- 文章列表 -->
+      <section class="content-area">
+        <!-- 筛选标签 -->
+        <div class="filter-section">
+          <div class="filter-tabs" id="filterTabs">
+            <!-- JS 动态渲染 -->
+          </div>
+        </div>
+
+        <!-- 文章网格 -->
+        <div class="articles-grid" id="articlesGrid">
+          <div class="loading">加载中</div>
+        </div>
+      </section>
+
+      <!-- 侧边栏 -->
+      <aside class="sidebar">
+        <!-- CTA 购买账号 -->
+        <div class="sidebar-widget">
+          <div class="cta-box">
+            <h3>🎯 需要现成账号？</h3>
+            <p>跳过养号期，直接入手经过验证的成熟账号，省时省力更高效</p>
+            <a href="https://anhao.remecc.com/" target="_blank" rel="noopener" class="cta-btn">
+              前往购买 →
+            </a>
+          </div>
+        </div>
+
+        <!-- 分类导航 -->
+        <div class="sidebar-widget">
+          <h3 class="widget-title">📂 平台分类</h3>
+          <ul class="category-nav">
+            <li>
+              <a href="#" data-category="twitter">
+                <span>🐦 Twitter/X</span>
+                <span class="category-count">1</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" data-category="instagram">
+                <span>📸 Instagram</span>
+                <span class="category-count">1</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" data-category="facebook">
+                <span>👥 Facebook</span>
+                <span class="category-count">1</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" data-category="tiktok">
+                <span>🎵 TikTok</span>
+                <span class="category-count">1</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" data-category="discord">
+                <span>🎮 Discord</span>
+                <span class="category-count">1</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 热门文章 -->
+        <div class="sidebar-widget">
+          <h3 class="widget-title">🔥 热门文章</h3>
+          <ul class="popular-list">
+            <li>
+              <a href="articles/twitter-register-guide.html">
+                <span class="popular-num">1</span>
+                <span class="popular-title">2026年Twitter(X)账号注册全攻略</span>
+              </a>
+            </li>
+            <li>
+              <a href="articles/discord-server-build.html">
+                <span class="popular-num">2</span>
+                <span class="popular-title">Discord服务器搭建与运营指南</span>
+              </a>
+            </li>
+            <li>
+              <a href="articles/tiktok-account-tips.html">
+                <span class="popular-num">3</span>
+                <span class="popular-title">TikTok运营起步完整攻略</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>关于本站</h4>
+          <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem;">
+            出海攻略专注于海外社交媒体运营知识分享，帮助跨境电商、海外营销从业者快速上手主流平台。
+          </p>
+        </div>
+        <div class="footer-section">
+          <h4>热门教程</h4>
+          <ul>
+            <li><a href="articles/twitter-register-guide.html">Twitter注册攻略</a></li>
+            <li><a href="articles/instagram-account-setup.html">Instagram养号技巧</a></li>
+            <li><a href="articles/facebook-marketing-beginner.html">Facebook营销入门</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>资源推荐</h4>
+          <ul>
+            <li><a href="https://anhao.remecc.com/" target="_blank" rel="noopener">购买海外账号</a></li>
+            <li><a href="articles/tiktok-account-tips.html">TikTok运营指南</a></li>
+            <li><a href="articles/discord-server-build.html">Discord建群教程</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 出海攻略 All Rights Reserved | 仅供学习交流使用</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/analytics.js"></script>
+</body>
+</html>

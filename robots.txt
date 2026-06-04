@@ -1,0 +1,10 @@
+# robots.txt - 出海攻略
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://chuhai-tips.vercel.app/sitemap.xml
+
+# Crawl-delay (可选，礼貌爬取)
+Crawl-delay: 1

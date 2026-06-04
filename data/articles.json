@@ -1,0 +1,102 @@
+{
+  "articles": [
+    {
+      "slug": "twitter-growth-guide",
+      "title": "Twitter养号进阶指南：如何从新号快速养成高权重账号",
+      "category": "twitter",
+      "categoryName": "Twitter",
+      "description": "从新号到高权重账号的完整攻略，详解权重提升技巧、养号常见误区与实操步骤，助你运营Twitter事半功倍。",
+      "date": "2026-06-05",
+      "coverEmoji": "📈",
+      "tags": ["Twitter养号", "Twitter权重提升", "Twitter账号权重", "X账号运营", "Twitter防封"],
+      "related": ["twitter-register-guide", "multi-account-management", "instagram-account-setup"],
+      "readingTime": 11
+    },
+    {
+      "slug": "multi-account-management",
+      "title": "海外社媒多账号运营全攻略：安全矩阵搭建与防关联实操",
+      "category": "operation",
+      "categoryName": "运营技巧",
+      "description": "详解账号矩阵搭建思路、防关联浏览器配置、高效管理工具推荐，让你安全高效运营多个海外社媒账号。",
+      "date": "2026-06-04",
+      "coverEmoji": "🔢",
+      "tags": ["多账号运营", "账号矩阵", "防关联", "指纹浏览器", "社媒管理"],
+      "related": ["twitter-register-guide", "instagram-account-setup"],
+      "readingTime": 12
+    },
+    {
+      "slug": "twitter-register-guide",
+      "title": "2026年Twitter(X)账号注册全攻略：从零开始避坑指南",
+      "category": "twitter",
+      "categoryName": "Twitter",
+      "description": "详细讲解Twitter(X)账号注册流程、常见封号原因和养号技巧，帮助你快速拥有稳定的社交媒体账号。",
+      "date": "2026-06-03",
+      "coverEmoji": "🐦",
+      "tags": ["Twitter注册", "X账号", "养号技巧", "防封号"],
+      "related": ["instagram-account-setup", "facebook-marketing-beginner"],
+      "readingTime": 10
+    },
+    {
+      "slug": "instagram-account-setup",
+      "title": "Instagram账号注册与养号实操：新手必看的7个关键步骤",
+      "category": "instagram",
+      "categoryName": "Instagram",
+      "description": "从注册到养号的完整攻略，涵盖2FA设置、限流原因分析和多账号管理技巧，让你运营Instagram不再踩坑。",
+      "date": "2026-06-02",
+      "coverEmoji": "📸",
+      "tags": ["Instagram注册", "IG养号", "多账号管理"],
+      "related": ["twitter-register-guide", "tiktok-account-tips"],
+      "readingTime": 12
+    },
+    {
+      "slug": "facebook-marketing-beginner",
+      "title": "Facebook营销从0到1：账号准备与BM开通完整流程",
+      "category": "facebook",
+      "categoryName": "Facebook",
+      "description": "深入解析个人号与企业号区别、BM开户流程和广告账户申请，帮助你开启Facebook营销之路。",
+      "date": "2026-06-01",
+      "coverEmoji": "👥",
+      "tags": ["Facebook营销", "BM开户", "广告账户"],
+      "related": ["twitter-register-guide", "discord-server-build"],
+      "readingTime": 11
+    },
+    {
+      "slug": "tiktok-account-tips",
+      "title": "TikTok运营起步：账号注册、环境配置与内容策略",
+      "category": "tiktok",
+      "categoryName": "TikTok",
+      "description": "TikTok注册全流程、环境配置要点和内容定位策略，适合想进军短视频领域的运营者阅读。",
+      "date": "2026-05-31",
+      "coverEmoji": "🎵",
+      "tags": ["TikTok注册", "TikTok运营", "短视频营销"],
+      "related": ["instagram-account-setup", "discord-server-build"],
+      "readingTime": 10
+    },
+    {
+      "slug": "discord-server-build",
+      "title": "Discord服务器搭建与运营：从建群到社群变现",
+      "category": "discord",
+      "categoryName": "Discord",
+      "description": "完整指南教你从零搭建Discord服务器，规划频道结构，配置机器人，实现社群高效运营和变现。",
+      "date": "2026-05-30",
+      "coverEmoji": "🎮",
+      "tags": ["Discord建群", "Discord运营", "社群变现"],
+      "related": ["facebook-marketing-beginner", "tiktok-account-tips"],
+      "readingTime": 13
+    }
+  ],
+  "categories": [
+    { "slug": "all", "name": "全部文章", "icon": "📚" },
+    { "slug": "twitter", "name": "Twitter", "icon": "🐦" },
+    { "slug": "instagram", "name": "Instagram", "icon": "📸" },
+    { "slug": "facebook", "name": "Facebook", "icon": "👥" },
+    { "slug": "tiktok", "name": "TikTok", "icon": "🎵" },
+    { "slug": "discord", "name": "Discord", "icon": "🎮" }
+  ],
+  "site": {
+    "name": "出海攻略",
+    "description": "专注海外社交媒体运营教程与实操指南",
+    "url": "https://chuhai-tips.vercel.app",
+    "targetUrl": "https://anhao.remecc.com/"
+  }
+}

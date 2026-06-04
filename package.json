@@ -1,0 +1,9 @@
+{
+  "name": "chuhai-tips",
+  "version": "1.0.0",
+  "private": true,
+  "description": "海外社媒运营教程博客",
+  "dependencies": {
+    "@vercel/kv": "^3.0.0"
+  }
+}

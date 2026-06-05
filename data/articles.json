@@ -1,6 +1,18 @@
 {
   "articles": [
     {
+      "slug": "tiktok-live-streaming-guide",
+      "title": "TikTok直播带货入门：从账号准备到首播实操全攻略",
+      "category": "tiktok",
+      "categoryName": "TikTok",
+      "description": "从账号准备、实名认证、设备选择到首播话术与选品策略，助你快速开启TikTok直播带货变现。",
+      "date": "2026-06-05",
+      "coverEmoji": "🎬",
+      "tags": ["TikTok直播", "TikTok带货", "TikTok直播带货", "TikTok首播", "TikTok电商"],
+      "related": ["tiktok-account-tips", "instagram-account-setup", "multi-account-management"],
+      "readingTime": 10
+    },
+    {
       "slug": "twitter-growth-guide",
       "title": "Twitter养号进阶指南：如何从新号快速养成高权重账号",
       "category": "twitter",

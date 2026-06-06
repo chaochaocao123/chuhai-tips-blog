@@ -1,6 +1,18 @@
 {
   "articles": [
     {
+      "slug": "instagram-growth-strategy",
+      "title": "Instagram涨粉实战：内容定位与算法利用的完整攻略",
+      "category": "instagram",
+      "categoryName": "Instagram",
+      "description": "从内容定位到算法利用，详解让你的Instagram帖子获得更多曝光和粉丝的高效策略。",
+      "date": "2026-06-06",
+      "coverEmoji": "📈",
+      "tags": ["Instagram涨粉", "Instagram内容营销", "Instagram算法", "IG运营技巧", "Instagram引流"],
+      "related": ["instagram-account-setup", "multi-account-management", "tiktok-account-tips"],
+      "readingTime": 11
+    },
+    {
       "slug": "tiktok-live-streaming-guide",
       "title": "TikTok直播带货入门：从账号准备到首播实操全攻略",
       "category": "tiktok",

@@ -144,6 +144,18 @@
       "readingTime": 13
     },
     {
+      "slug": "twitter-advanced-operations",
+      "title": "Twitter进阶运营指南：认证获取、列表运用与算法优化实操",
+      "category": "twitter",
+      "categoryName": "Twitter",
+      "description": "Twitter(X)进阶运营完整攻略，详解蓝鸟认证获取、列表功能高效运用、内容算法优化技巧与广告投放入门。",
+      "date": "2026-06-08",
+      "coverEmoji": "🐦",
+      "tags": ["Twitter进阶运营", "Twitter认证", "Twitter Blue订阅", "Twitter列表功能", "Twitter算法优化", "Twitter广告投放", "X账号运营技巧"],
+      "related": ["twitter-register-guide", "twitter-growth-guide", "social-media-tools-guide"],
+      "readingTime": 10
+    },
+    {
       "slug": "discord-monetization",
       "title": "Discord社区运营变现指南：从粉丝积累到商业转化的完整攻略",
       "category": "discord",

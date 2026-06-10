@@ -168,6 +168,18 @@
       "readingTime": 10
     },
     {
+      "slug": "facebook-ads-beginner-guide",
+      "title": "Facebook广告投放从0到1：像素配置与首支广告实操攻略",
+      "category": "facebook",
+      "categoryName": "Facebook",
+      "description": "Facebook广告投放从0到1完整攻略，详解像素配置、广告系列搭建、受众定位与首支广告实操步骤，助你开启Facebook营销变现之路。",
+      "date": "2026-06-10",
+      "coverEmoji": "📊",
+      "tags": ["Facebook广告投放", "Facebook Ads", "Facebook像素", "广告投放入门", "Facebook营销", "广告系列搭建", "受众定位"],
+      "related": ["facebook-marketing-beginner", "facebook-page-operation", "social-media-tools-guide"],
+      "readingTime": 10
+    },
+    {
       "slug": "instagram-reels-guide",
       "title": "Instagram Reels 运营攻略：算法机制与高效涨粉实战技巧",
       "category": "instagram",

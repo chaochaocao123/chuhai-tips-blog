@@ -168,6 +168,18 @@
       "readingTime": 10
     },
     {
+      "slug": "twitter-video-guide",
+      "title": "Twitter视频营销实操：内容制作与算法优化完整指南",
+      "category": "twitter",
+      "categoryName": "Twitter",
+      "description": "详解Twitter视频发布格式要求、内容制作技巧、算法优化策略，助你通过视频内容快速提升账号曝光、积累精准粉丝并引导私域转化。",
+      "date": "2026-06-10",
+      "coverEmoji": "🎬",
+      "tags": ["Twitter视频", "Twitter视频营销", "Twitter内容制作", "Twitter算法优化", "Twitter涨粉技巧", "Twitter视频推广", "X平台视频运营"],
+      "related": ["twitter-register-guide", "twitter-growth-guide", "multi-account-management"],
+      "readingTime": 10
+    },
+    {
       "slug": "facebook-ads-beginner-guide",
       "title": "Facebook广告投放从0到1：像素配置与首支广告实操攻略",
       "category": "facebook",

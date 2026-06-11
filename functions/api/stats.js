@@ -38,13 +38,18 @@ export async function onRequestGet(context) {
   };
 
   // 工具函数：执行 SQL 查询，返回 data 数组
+  // 注意：Cloudflare Analytics Engine SQL API 响应没有 success 字段，
+  //      直接以 data/meta/rows/errors 形式返回；只有 errors 数组非空才算失败
   async function sql(query) {
     const r = await fetch(API_BASE, { method: 'POST', headers, body: query });
     const j = await r.json();
-    if (!j.success) {
-      throw new Error('SQL failed: ' + JSON.stringify(j.errors || j));
+    if (j.errors && j.errors.length > 0) {
+      throw new Error('SQL failed: ' + JSON.stringify(j.errors));
     }
-    return j.data || [];
+    if (!Array.isArray(j.data)) {
+      throw new Error('SQL 响应无 data 字段: ' + JSON.stringify(j).slice(0, 300));
+    }
+    return j.data;
   }
 
   try {

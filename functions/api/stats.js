@@ -115,7 +115,7 @@ export async function onRequestGet(context) {
     );
     const buyClickByPage = buyClickByPageRows
       .filter(r => r.page)
-      .map(r => ({ page: r.page, clicks: r.cnt }));
+      .map(r => ({ page: r.page, clicks: Number(r.cnt) }));
 
     // 6. 文章页 PV Top
     const articleRows = await sql(
@@ -142,7 +142,7 @@ export async function onRequestGet(context) {
     );
     const pages = pageRows.filter(r => r.page).map(r => ({
       page: r.page,
-      pv: r.pv
+      pv: Number(r.pv)
     }));
 
     return new Response(JSON.stringify({

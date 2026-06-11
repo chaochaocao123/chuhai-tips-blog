@@ -74,11 +74,15 @@ export async function onRequestGet(context) {
     const pv = Number(typeRows.find(r => r.type === 'pv')?.cnt || 0);
     const buyClicks = Number(typeRows.find(r => r.type === 'buy_click')?.cnt || 0);
 
-    // 2. UV（按页面去重后的 blob2 数量近似，Analytics Engine 没有真正 UV 概念；
-    //    更准确的代理是按"独立访问"——这里用 pv 行数 / 唯一 page 数 作为简化指标，
-    //    实际 UV 需要在 track 阶段去重写入 index2，此处先用 pv 数量做占位）
-    // TODO 后续可加 index2 = sessionId 真正算 UV
-    const uv = pv;
+    // 2. UV：用 uniq(index1) 算真实独立访客数（index1 = visitorId）
+    //    兼容性：旧数据（visitorId 未写入前）的 index1 是空字符串，uniq('') 会算 1，
+    //    部署后新数据会用真实 visitorId；如需清零旧数据可手动 SQL 删 dataset 重灌
+    const uvRow = await sql(
+      `SELECT uniq(index1) AS uv
+       FROM chuhai_analytics
+       WHERE blob1 = 'pv' AND timestamp >= now() - INTERVAL '${daysNum}' DAY`
+    );
+    const uv = Number(uvRow[0]?.uv || 0);
 
     // 3. 平均停留时长（duration 在 double1）
     const durRow = await sql(

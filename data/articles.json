@@ -214,6 +214,18 @@
       "tags": ["TikTok搬运", "TikTok二次创作", "TikTok内容去重", "TikTok视频剪辑", "TikTok版权规避", "TikTok高效内容生产"],
       "related": ["tiktok-account-tips", "tiktok-live-streaming-guide", "multi-account-management"],
       "readingTime": 10
+    },
+    {
+      "slug": "instagram-stories-dm-guide",
+      "title": "Instagram Stories 高效运营与 DM 私域引流实战指南",
+      "category": "instagram",
+      "categoryName": "Instagram",
+      "description": "详解Instagram Stories功能使用、内容策略与DM私域转化，助你打造高效的私域流量闭环。",
+      "date": "2026-06-11",
+      "coverEmoji": "📱",
+      "tags": ["Instagram Stories运营", "Instagram DM引流", "IG私域运营", "Stories涨粉", "DM营销技巧", "Instagram私域转化"],
+      "related": ["instagram-account-setup", "instagram-growth-strategy", "instagram-reels-guide", "multi-account-management"],
+      "readingTime": 10
     }
   ],
   "categories": [

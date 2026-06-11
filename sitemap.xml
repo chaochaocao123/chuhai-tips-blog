@@ -1,124 +1,128 @@
-# Sitemap - 出海攻略
-
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://gentle-crumble-93db08.netlify.app/articles/account-security-guide.html</loc>
-    <lastmod>2026-06-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://gentle-crumble-93db08.netlify.app/articles/social-media-tools-guide.html</loc>
-    <lastmod>2026-06-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://gentle-crumble-93db08.netlify.app/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <loc>https://chuhai-tips-blog.pages.dev/</loc>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://gentle-crumble-93db08.netlify.app/articles/facebook-page-operation.html</loc>
+    <loc>https://chuhai-tips-blog.pages.dev/articles/account-security-guide.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://chuhai-tips-blog.pages.dev/articles/social-media-tools-guide.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://chuhai-tips-blog.pages.dev/articles/facebook-page-operation.html</loc>
     <lastmod>2026-06-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gentle-crumble-93db08.netlify.app/articles/instagram-growth-strategy.html</loc>
+    <loc>https://chuhai-tips-blog.pages.dev/articles/instagram-growth-strategy.html</loc>
     <lastmod>2026-06-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gentle-crumble-93db08.netlify.app/articles/tiktok-live-streaming-guide.html</loc>
+    <loc>https://chuhai-tips-blog.pages.dev/articles/tiktok-live-streaming-guide.html</loc>
     <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gentle-crumble-93db08.netlify.app/articles/twitter-growth-guide.html</loc>
+    <loc>https://chuhai-tips-blog.pages.dev/articles/twitter-growth-guide.html</loc>
     <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gentle-crumble-93db08.netlify.app/articles/multi-account-management.html</loc>
+    <loc>https://chuhai-tips-blog.pages.dev/articles/multi-account-management.html</loc>
     <lastmod>2026-06-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gentle-crumble-93db08.netlify.app/articles/twitter-register-guide.html</loc>
+    <loc>https://chuhai-tips-blog.pages.dev/articles/twitter-register-guide.html</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gentle-crumble-93db08.netlify.app/articles/instagram-account-setup.html</loc>
+    <loc>https://chuhai-tips-blog.pages.dev/articles/instagram-account-setup.html</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gentle-crumble-93db08.netlify.app/articles/facebook-marketing-beginner.html</loc>
+    <loc>https://chuhai-tips-blog.pages.dev/articles/facebook-marketing-beginner.html</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gentle-crumble-93db08.netlify.app/articles/tiktok-account-tips.html</loc>
+    <loc>https://chuhai-tips-blog.pages.dev/articles/tiktok-account-tips.html</loc>
     <lastmod>2026-05-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gentle-crumble-93db08.netlify.app/articles/discord-server-build.html</loc>
+    <loc>https://chuhai-tips-blog.pages.dev/articles/discord-server-build.html</loc>
     <lastmod>2026-05-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gentle-crumble-93db08.netlify.app/articles/twitter-advanced-operations.html</loc>
+    <loc>https://chuhai-tips-blog.pages.dev/articles/twitter-advanced-operations.html</loc>
     <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gentle-crumble-93db08.netlify.app/articles/discord-monetization.html</loc>
+    <loc>https://chuhai-tips-blog.pages.dev/articles/discord-monetization.html</loc>
     <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gentle-crumble-93db08.netlify.app/articles/instagram-reels-guide.html</loc>
+    <loc>https://chuhai-tips-blog.pages.dev/articles/instagram-reels-guide.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gentle-crumble-93db08.netlify.app/articles/tiktok-content-creation.html</loc>
+    <loc>https://chuhai-tips-blog.pages.dev/articles/tiktok-content-creation.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gentle-crumble-93db08.netlify.app/articles/twitter-video-guide.html</loc>
+    <loc>https://chuhai-tips-blog.pages.dev/articles/twitter-video-guide.html</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gentle-crumble-93db08.netlify.app/articles/facebook-ads-beginner-guide.html</loc>
+    <loc>https://chuhai-tips-blog.pages.dev/articles/facebook-ads-beginner-guide.html</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gentle-crumble-93db08.netlify.app/articles/instagram-stories-dm-guide.html</loc>
+    <loc>https://chuhai-tips-blog.pages.dev/articles/instagram-stories-dm-guide.html</loc>
     <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://chuhai-tips-blog.pages.dev/articles/facebook-group-operations.html</loc>
+    <lastmod>2026-06-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

@@ -41,24 +41,24 @@ export async function onRequestGet(context) {
   // 工具函数：执行 SQL 查询，返回 data 数组
   // 注意：Cloudflare Analytics Engine SQL API 响应没有 success 字段，
   //      直接以 data/meta/rows/errors 形式返回；只有 errors 数组非空才算失败
-  let lastQuery = '';
   async function sql(query) {
-    lastQuery = query;
     const r = await fetch(API_BASE, { method: 'POST', headers, body: query });
     const status = r.status;
     const contentType = r.headers.get('content-type') || '';
     const text = await r.text();
     if (!contentType.includes('json')) {
-      throw new Error(`SQL 非 JSON 响应 [status=${status}, ct=${contentType}]: ${text.slice(0, 500)} ||| 实际 query=${query.replace(/\s+/g, ' ').slice(0, 200)}`);
+      // 典型错误：SQL 语法问题。响应是 plain text 如 "Input was invalid: sql parser error: ..."
+      const compactQuery = query.replace(/\s+/g, ' ').slice(0, 150);
+      throw new Error(`SQL 语法错误 [${status}]: ${text.slice(0, 200)} | query: ${compactQuery}`);
     }
     let j;
     try { j = JSON.parse(text); }
-    catch (e) { throw new Error(`SQL 响应 JSON 解析失败 [status=${status}]: ${text.slice(0, 500)} ||| 实际 query=${query.replace(/\s+/g, ' ').slice(0, 200)}`); }
+    catch (e) { throw new Error(`SQL 响应 JSON 解析失败 [${status}]: ${text.slice(0, 200)}`); }
     if (j.errors && j.errors.length > 0) {
-      throw new Error('SQL failed: ' + JSON.stringify(j.errors) + ' ||| 实际 query=' + query.replace(/\s+/g, ' ').slice(0, 200));
+      throw new Error('SQL failed: ' + JSON.stringify(j.errors));
     }
     if (!Array.isArray(j.data)) {
-      throw new Error('SQL 响应无 data 字段: ' + text.slice(0, 500) + ' ||| 实际 query=' + query.replace(/\s+/g, ' ').slice(0, 200));
+      throw new Error('SQL 响应无 data 字段: ' + text.slice(0, 200));
     }
     return j.data;
   }

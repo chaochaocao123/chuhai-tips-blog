@@ -127,7 +127,7 @@ export async function onRequestGet(context) {
     );
     const articles = articleRows.filter(r => r.page).map(r => ({
       page: r.page,
-      pv: r.pv
+      pv: Number(r.pv)
     }));
 
     // 7. 全部页面 PV

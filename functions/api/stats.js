@@ -86,12 +86,14 @@ export async function onRequestGet(context) {
     const avgDuration = Math.round(durRow[0]?.avgDur || 0);
 
     // 4. 购买点击按位置分布
+    // 注意：Cloudflare Analytics Engine SQL parser 强制 ORDER BY 必须有 LIMIT
     const posRows = await sql(
       `SELECT blob3 AS position, count() AS cnt
        FROM chuhai_analytics
        WHERE blob1 = 'buy_click' AND timestamp >= now() - INTERVAL '${daysNum}' DAY
        GROUP BY position
-       ORDER BY cnt DESC`
+       ORDER BY cnt DESC
+       LIMIT 50`
     );
     const buyClickByPosition = {};
     for (const r of posRows) {

@@ -74,11 +74,11 @@ export async function onRequestGet(context) {
     const pv = Number(typeRows.find(r => r.type === 'pv')?.cnt || 0);
     const buyClicks = Number(typeRows.find(r => r.type === 'buy_click')?.cnt || 0);
 
-    // 2. UV：用 uniq(index1) 算真实独立访客数（index1 = visitorId）
-    //    兼容性：旧数据（visitorId 未写入前）的 index1 是空字符串，uniq('') 会算 1，
-    //    部署后新数据会用真实 visitorId；如需清零旧数据可手动 SQL 删 dataset 重灌
+    // 2. UV：用 count(DISTINCT index1) 算真实独立访客数（index1 = visitorId）
+    //    注意：Cloudflare Analytics Engine SQL 不支持 uniq()，但支持 count(DISTINCT)
+    //    兼容性：旧数据（index1 是 date 字符串而非 visitorId）的 UV=1；新数据按真实 visitorId 去重
     const uvRow = await sql(
-      `SELECT uniq(index1) AS uv
+      `SELECT count(DISTINCT index1) AS uv
        FROM chuhai_analytics
        WHERE blob1 = 'pv' AND timestamp >= now() - INTERVAL '${daysNum}' DAY`
     );

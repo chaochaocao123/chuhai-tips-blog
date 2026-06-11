@@ -71,8 +71,8 @@ export async function onRequestGet(context) {
        WHERE timestamp >= now() - INTERVAL '${daysNum}' DAY
        GROUP BY type`
     );
-    const pv = typeRows.find(r => r.type === 'pv')?.cnt || 0;
-    const buyClicks = typeRows.find(r => r.type === 'buy_click')?.cnt || 0;
+    const pv = Number(typeRows.find(r => r.type === 'pv')?.cnt || 0);
+    const buyClicks = Number(typeRows.find(r => r.type === 'buy_click')?.cnt || 0);
 
     // 2. UV（按页面去重后的 blob2 数量近似，Analytics Engine 没有真正 UV 概念；
     //    更准确的代理是按"独立访问"——这里用 pv 行数 / 唯一 page 数 作为简化指标，

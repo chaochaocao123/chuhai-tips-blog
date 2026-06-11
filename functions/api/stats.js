@@ -42,12 +42,20 @@ export async function onRequestGet(context) {
   //      直接以 data/meta/rows/errors 形式返回；只有 errors 数组非空才算失败
   async function sql(query) {
     const r = await fetch(API_BASE, { method: 'POST', headers, body: query });
-    const j = await r.json();
+    const status = r.status;
+    const contentType = r.headers.get('content-type') || '';
+    const text = await r.text();
+    if (!contentType.includes('json')) {
+      throw new Error(`SQL 非 JSON 响应 [status=${status}, ct=${contentType}]: ${text.slice(0, 500)}`);
+    }
+    let j;
+    try { j = JSON.parse(text); }
+    catch (e) { throw new Error(`SQL 响应 JSON 解析失败 [status=${status}]: ${text.slice(0, 500)}`); }
     if (j.errors && j.errors.length > 0) {
       throw new Error('SQL failed: ' + JSON.stringify(j.errors));
     }
     if (!Array.isArray(j.data)) {
-      throw new Error('SQL 响应无 data 字段: ' + JSON.stringify(j).slice(0, 300));
+      throw new Error('SQL 响应无 data 字段: ' + text.slice(0, 500));
     }
     return j.data;
   }

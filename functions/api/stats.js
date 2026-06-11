@@ -1,12 +1,9 @@
 /**
  * Cloudflare Pages Function - 统计查询
  *
- * 数据源：Cloudflare Analytics Engine（由 track.js 写入）
- * 由于当前 Token 缺 Analytics:Read 权限，本接口返回简化数据
- * 完整数据请在 Cloudflare Dashboard 查看：
- * https://dash.cloudflare.com/?to=/:account/workers/analytics-engine
- *
- * 客户端调用: GET /api/stats?days=7
+ * 数据源：Cloudflare Analytics Engine (chuhai_analytics dataset)
+ * - 通过 Cloudflare SQL API 查询（需要 env.CLOUDFLARE_API_TOKEN 和 env.ACCOUNT_ID）
+ * - 客户端调用: GET /api/stats?days=7
  */
 
 export async function onRequestGet(context) {
@@ -21,46 +18,143 @@ export async function onRequestGet(context) {
   const url = new URL(request.url);
   const daysNum = Math.min(parseInt(url.searchParams.get('days')) || 7, 30);
 
-  // 尝试从 Analytics Engine 读取（需要 Account Analytics:Read 权限）
-  // 如果没有权限，返回空数据结构 + 提示
-  const result = {
-    summary: {
-      pv: 0,
-      uv: 0,
-      days: daysNum,
-      avgDuration: 0,
-      buyClicks: 0,
-      buyClickByPosition: {},
-      _note: '需要 Cloudflare Token 添加 Account Analytics:Read 权限后启用完整统计'
-    },
-    buyClickByPage: [],
-    articles: [],
-    pages: []
-  };
-
-  // 如果有 ANALYTICS binding 且有权读取，可以在这里添加 SQL 查询逻辑
-  // 当前 Token 缺 Analytics:Read 权限，所以暂时返回空数据
-  if (env.ANALYTICS) {
-    try {
-      // Workers Analytics Engine 暂不支持通过 binding 直接查询
-      // 数据需要通过 Cloudflare Dashboard 或 REST API 查询
-      // REST API 调用方式（需要 Account Analytics:Read 权限）：
-      // const query = `SELECT blob1 as type, blob2 as page, count() as pv FROM chuhai_analytics WHERE index1 >= today() - INTERVAL '${daysNum}' DAY GROUP BY type, page`;
-      // 需要 CLOUDFLARE_API_TOKEN 环境变量
-      // const sqlResp = await fetch(`https://api.cloudflare.com/client/v4/accounts/${env.ACCOUNT_ID}/analytics_engine/sql`, {
-      //   method: 'POST',
-      //   headers: { 'Authorization': `Bearer ${env.CLOUDFLARE_API_TOKEN}`, 'Content-Type': 'text/plain' },
-      //   body: query
-      // });
-    } catch (e) {
-      // ignore
-    }
+  // 缺凭据直接报错（避免历史 silent 静默失败的坑）
+  if (!env.CLOUDFLARE_API_TOKEN || !env.ACCOUNT_ID) {
+    return new Response(JSON.stringify({
+      ok: false,
+      error: '缺少 CLOUDFLARE_API_TOKEN 或 ACCOUNT_ID 环境变量',
+      summary: { pv: 0, uv: 0, days: daysNum, avgDuration: 0, buyClicks: 0, buyClickByPosition: {} },
+      buyClickByPage: [], articles: [], pages: []
+    }), {
+      status: 500,
+      headers: corsHeaders
+    });
   }
 
-  return new Response(JSON.stringify(result), {
-    status: 200,
-    headers: corsHeaders
-  });
+  const API_BASE = `https://api.cloudflare.com/client/v4/accounts/${env.ACCOUNT_ID}/analytics_engine/sql`;
+  const headers = {
+    'Authorization': `Bearer ${env.CLOUDFLARE_API_TOKEN}`,
+    'Content-Type': 'text/plain'
+  };
+
+  // 工具函数：执行 SQL 查询，返回 data 数组
+  async function sql(query) {
+    const r = await fetch(API_BASE, { method: 'POST', headers, body: query });
+    const j = await r.json();
+    if (!j.success) {
+      throw new Error('SQL failed: ' + JSON.stringify(j.errors || j));
+    }
+    return j.data || [];
+  }
+
+  try {
+    // 1. PV 总数（按 type 拆分）
+    const typeRows = await sql(
+      `SELECT blob1 AS type, count() AS cnt
+       FROM chuhai_analytics
+       WHERE timestamp >= now() - INTERVAL '${daysNum}' DAY
+       GROUP BY type`
+    );
+    const pv = typeRows.find(r => r.type === 'pv')?.cnt || 0;
+    const buyClicks = typeRows.find(r => r.type === 'buy_click')?.cnt || 0;
+
+    // 2. UV（按页面去重后的 blob2 数量近似，Analytics Engine 没有真正 UV 概念；
+    //    更准确的代理是按"独立访问"——这里用 pv 行数 / 唯一 page 数 作为简化指标，
+    //    实际 UV 需要在 track 阶段去重写入 index2，此处先用 pv 数量做占位）
+    // TODO 后续可加 index2 = sessionId 真正算 UV
+    const uv = pv;
+
+    // 3. 平均停留时长（duration 在 double1）
+    const durRow = await sql(
+      `SELECT avg(double1) AS avgDur
+       FROM chuhai_analytics
+       WHERE blob1 = 'duration' AND timestamp >= now() - INTERVAL '${daysNum}' DAY`
+    );
+    const avgDuration = Math.round(durRow[0]?.avgDur || 0);
+
+    // 4. 购买点击按位置分布
+    const posRows = await sql(
+      `SELECT blob3 AS position, count() AS cnt
+       FROM chuhai_analytics
+       WHERE blob1 = 'buy_click' AND timestamp >= now() - INTERVAL '${daysNum}' DAY
+       GROUP BY position
+       ORDER BY cnt DESC`
+    );
+    const buyClickByPosition = {};
+    for (const r of posRows) {
+      if (r.position) buyClickByPosition[r.position] = r.cnt;
+    }
+
+    // 5. 购买点击按页面分布
+    const buyClickByPageRows = await sql(
+      `SELECT blob2 AS page, count() AS cnt
+       FROM chuhai_analytics
+       WHERE blob1 = 'buy_click' AND timestamp >= now() - INTERVAL '${daysNum}' DAY
+       GROUP BY page
+       ORDER BY cnt DESC
+       LIMIT 20`
+    );
+    const buyClickByPage = buyClickByPageRows
+      .filter(r => r.page)
+      .map(r => ({ page: r.page, clicks: r.cnt }));
+
+    // 6. 文章页 PV Top
+    const articleRows = await sql(
+      `SELECT blob2 AS page, count() AS pv
+       FROM chuhai_analytics
+       WHERE blob1 = 'pv' AND blob2 LIKE '/articles/%' AND timestamp >= now() - INTERVAL '${daysNum}' DAY
+       GROUP BY page
+       ORDER BY pv DESC
+       LIMIT 20`
+    );
+    const articles = articleRows.filter(r => r.page).map(r => ({
+      page: r.page,
+      pv: r.pv
+    }));
+
+    // 7. 全部页面 PV
+    const pageRows = await sql(
+      `SELECT blob2 AS page, count() AS pv
+       FROM chuhai_analytics
+       WHERE blob1 = 'pv' AND timestamp >= now() - INTERVAL '${daysNum}' DAY
+       GROUP BY page
+       ORDER BY pv DESC
+       LIMIT 50`
+    );
+    const pages = pageRows.filter(r => r.page).map(r => ({
+      page: r.page,
+      pv: r.pv
+    }));
+
+    return new Response(JSON.stringify({
+      ok: true,
+      summary: {
+        pv,
+        uv,
+        days: daysNum,
+        avgDuration,
+        buyClicks,
+        buyClickByPosition
+      },
+      buyClickByPage,
+      articles,
+      pages,
+      generatedAt: new Date().toISOString()
+    }), {
+      status: 200,
+      headers: corsHeaders
+    });
+  } catch (e) {
+    return new Response(JSON.stringify({
+      ok: false,
+      error: e.message,
+      summary: { pv: 0, uv: 0, days: daysNum, avgDuration: 0, buyClicks: 0, buyClickByPosition: {} },
+      buyClickByPage: [], articles: [], pages: []
+    }), {
+      status: 500,
+      headers: corsHeaders
+    });
+  }
 }
 
 export async function onRequestOptions() {

@@ -250,6 +250,18 @@
       "tags": ["TikTok Shop运营", "TikTok电商", "TikTok开店", "TikTok店铺入驻", "TikTok商品上架", "TikTok带货教程", "TikTok电商变现"],
       "related": ["tiktok-account-tips", "tiktok-live-streaming-guide", "tiktok-content-creation", "multi-account-management"],
       "readingTime": 10
+    },
+    {
+      "slug": "discord-bot-automation-guide",
+      "title": "Discord 机器人配置与自动化运营实操指南",
+      "category": "discord",
+      "categoryName": "Discord",
+      "description": "详解 MEE6、Dyno、Carl-bot 等主流机器人安装设置，帮你打造高效的自动化社群运营体系。",
+      "date": "2026-06-12",
+      "coverEmoji": "🤖",
+      "tags": ["Discord机器人配置", "Discord自动化运营", "MEE6设置", "Discord机器人教程", "Discord运营效率"],
+      "related": ["discord-server-build", "discord-monetization", "multi-account-management"],
+      "readingTime": 10
     }
   ],
   "categories": [

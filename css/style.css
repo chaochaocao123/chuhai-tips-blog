@@ -814,3 +814,110 @@ a:hover {
     font-size: 1.4rem;
   }
 }
+
+/* ==================== 作者署名 / E-E-A-T 模块 ==================== */
+.article-author {
+  background: #f8f9fa;
+  border-left: 4px solid #007bff;
+  padding: 20px 24px;
+  margin: 40px 0 24px;
+  border-radius: 8px;
+}
+
+.article-author .author-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.article-author .author-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.article-author .author-name {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.article-author .author-badge {
+  background: #28a745;
+  color: white;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: normal;
+  display: inline-block;
+}
+
+.article-author .author-meta {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 4px;
+}
+
+.article-author .author-bio {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.article-author .author-links {
+  margin-top: 8px;
+  font-size: 0.85rem;
+}
+
+.article-author .author-links a {
+  color: #007bff;
+  text-decoration: none;
+  margin-right: 12px;
+}
+
+.article-author .author-links a:hover {
+  text-decoration: underline;
+}
+
+/* ==================== 实操经验提示框 ==================== */
+.field-note {
+  background: #fff8e1;
+  border-left: 4px solid #ffa000;
+  padding: 16px 20px;
+  margin: 24px 0;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #444;
+}
+
+.field-note strong {
+  color: #e65100;
+}
+
+@media (max-width: 768px) {
+  .article-author {
+    padding: 16px;
+  }
+  .article-author .author-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .field-note {
+    padding: 14px 16px;
+  }
+}

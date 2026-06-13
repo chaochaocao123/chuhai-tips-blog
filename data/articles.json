@@ -262,6 +262,18 @@
       "tags": ["Discord机器人配置", "Discord自动化运营", "MEE6设置", "Discord机器人教程", "Discord运营效率"],
       "related": ["discord-server-build", "discord-monetization", "multi-account-management"],
       "readingTime": 10
+    },
+    {
+      "slug": "twitter-brand-kol-guide",
+      "title": "Twitter(X)品牌营销与KOL合作实操指南",
+      "category": "twitter",
+      "categoryName": "Twitter",
+      "description": "Twitter(X)品牌营销与KOL合作实操指南，详解品牌账号定位策略、内容营销方法、KOL筛选与谈判技巧，帮助出海品牌通过Twitter实现精准曝光与高效转化。",
+      "date": "2026-06-13",
+      "coverEmoji": "📣",
+      "tags": ["Twitter品牌营销", "Twitter KOL合作", "Twitter网红营销", "X平台营销", "Twitter广告投放", "品牌出海推广"],
+      "related": ["twitter-register-guide", "twitter-growth-guide", "social-media-tools-guide"],
+      "readingTime": 10
     }
   ],
   "categories": [
